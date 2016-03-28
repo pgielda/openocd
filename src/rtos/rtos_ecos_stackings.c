@@ -24,7 +24,7 @@
 #include "rtos_standard_stackings.h"
 #include "target/armv7m.h"
 
-#define REG_OFF (32*4) // omit 32 fpu registers
+#define REG_OFF (132) // omit 132 bytes
 
 static const struct stack_register_offset rtos_eCos_Cortex_M3_stack_offsets[ARMV7M_NUM_CORE_REGS] = {
 	{ REG_OFF + 0x0c, 32 },		/* r0   */
