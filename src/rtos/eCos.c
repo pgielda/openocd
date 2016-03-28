@@ -67,10 +67,10 @@ static const struct eCos_params eCos_params_list[] = {
 	"cortex_m",			/* target_name */
 	4,						/* pointer_width; */
 	0x0c,					/* thread_stack_offset; */
-	0x9c,					/* thread_name_offset; */
-	0x3c,					/* thread_state_offset; */
-	0xa0,					/* thread_next_offset */
-	0x4c,					/* thread_uniqueid_offset */
+	0xec, //0x9c,					/* thread_name_offset; */
+	0x4c, //0x3c,					/* thread_state_offset; */
+	0xf0, //0xa0,					/* thread_next_offset */
+	0x5c, //0x4c,					/* thread_uniqueid_offset */
 	&rtos_eCos_Cortex_M3_stacking	/* stacking_info */
 	}
 };
@@ -381,10 +381,10 @@ static int eCos_detect_rtos(struct target *target)
 static int eCos_create(struct target *target)
 {
 	int i = 0;
-	while ((i < ECOS_NUM_PARAMS) &&
+	/*while ((i < ECOS_NUM_PARAMS) &&
 		(0 != strcmp(eCos_params_list[i].target_name, target->type->name))) {
 		i++;
-	}
+	}*/
 	if (i >= ECOS_NUM_PARAMS) {
 		LOG_ERROR("Could not find target in eCos compatibility list");
 		return -1;
